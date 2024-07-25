@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Welcome App</title>
+	<style>
+		*{font-size:60px;font-family:Calibri;}
+		body{background:skyblue;}
+	</style>	
+	</head>
+	<body>	
+		<center>
+			<h1>Welcome App</h1>
+			<form onsubmit="show()">
+			<input type="text" placeholder="Enter ur Name" id="name">
+			<br/><br/>
+			<input type="submit"/>
+			<h2 id="msg"/>
+			<script>
+				function show()
+					{
+						event.preventDefault();
+						let name=document.getElementById("name");
+						let msg=document.getElementById("msg");
+						
+						if(name.value==="")
+						{
+							alert("u have not enter ur name");
+							msg.innerHTML="";		
+							name.focus();
+							return;
+						}
+						if(name.value.trim()==="")
+						{
+							alert("name shd not be blank spaces");
+							msg.innerHTML="";
+							name.value="";		
+							name.focus();
+							return;
+						}
+						if(!name.value.match(/^[a-zA-Z]+$/))
+						{
+							alert("name shd contian only aplhabets");
+							msg.innerHTML="";		
+							name.focus();
+							return;
+						}
+						let d=new Date();
+						let hr=d.getHours();
+						let ans="";
+						if(hr<12)	ans="Good morning"  +name.value; 
+						else if(hr<16)	ans="Good Afternoon"  +name.value;
+						else 		ans="Good Evening"  +name.value; 
+							msg.innerHTML= ans;
+ 
+
+
+					}
+			</script>
+		</center>
+	</body>
+</html>
